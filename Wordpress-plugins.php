@@ -16,15 +16,20 @@ if (!defined('ABSPATH')) {
 }
 
 class Wordpress_plugins {
-     public function __construct() {
-  add_filter('woocommerce_get_availability_text', [$this, 'in_stock'], 10, 2);
+   public function __construct() {
+      add_filter('woocommerce_available_variation', [$this, 'in_stock_availabilty'], 10, 3);
      }
+    public function in_stock_availabilty($data, $product, $variation) {
+        $stock = $variation->get_stock_quantity();
+        if (!$variation->is_in_stock() || $stock == 0) {
+            $data['availability_html'] = '<p class="stock out-of-stock">Out of stock!</p>';
+        } 
+        elseif ($stock <= 3) {
+            $data['availability_html'] = '<p class="stock low-stock">Low Stock ' . $stock . '</p>';
+        }
 
- public  function in_stock( $availability_text, $product) {
-   //return all the stock as a test to check all the stock
-  return __( 'In stock', 'woocommerce');
-   //then going through the varients and show whats in stock and what isn't
- }
+    return $data;
+    }
 }
 
 new Wordpress_plugins();
