@@ -24,6 +24,7 @@ class Wordpress_plugins {
         if (!$variation->is_in_stock() || $stock == 0) {
             $data['availability_html'] = '<p class="stock out-of-stock">Out of stock!</p>';
         } 
+        //elseif stock is equal or less fhan 3 override it eith low stock
         elseif ($stock <= 3) {
             $data['availability_html'] = '<p class="stock low-stock">Low Stock ' . $stock . '</p>';
         }
