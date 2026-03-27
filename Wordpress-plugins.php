@@ -15,6 +15,8 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
+
+//Making out of stock messaging or low stock 
 class Wordpress_plugins {
    public function __construct() {
       add_filter('woocommerce_available_variation', [$this, 'in_stock_availabilty'], 10, 3);
