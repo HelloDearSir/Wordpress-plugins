@@ -28,6 +28,9 @@ class Wordpress_plugins {
         if ($stock <= 3) {
             $data['availability_html'] = '<p class="stock low-stock" style="color:red;">Low Stock ' . $stock . '</p>';
         }
+           if ($stock > 3) {
+            $data['availability_html'] = '<p class="In-stock" style="color:red;">in  Stock ' . $stock . '</p>';
+        }
 //return data
     return $data;
     }
