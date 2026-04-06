@@ -36,7 +36,7 @@ class Wordpress_plugins {
     return $data;
     }
     public function messages() {
-        echo '<p> Hello  </p>';
+        echo '<p class="customhtml"> Hello  </p>';
 }
 
 new Wordpress_plugins();
