@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) {
 class Wordpress_plugins {
    public function __construct() {
       add_filter('woocommerce_available_variation', [$this, 'in_stock_availabilty'], 10, 3);
-       add_action('woocommerce_before_add_to_cart',[$this, 'messages'],10);
+     
      }
     public function in_stock_availabilty($data, $product, $variation) {
         $stock = $variation->get_stock_quantity();
@@ -35,8 +35,6 @@ class Wordpress_plugins {
 //return data
     return $data;
     }
-    public function messages() {
-        echo '<p class="customhtml"> Hello  </p>';
-}
+    
 
 new Wordpress_plugins();
