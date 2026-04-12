@@ -2,7 +2,7 @@
 /*
 Plugin Name: Wordpress plugins
 Version: 0.0.1
-Description: Wordpress plugins
+Description: Wordpress plugins with oop
 Author: Jon Barton
 Text Domain: woocommerce
 Requires at least: 6.0
