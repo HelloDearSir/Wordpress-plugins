@@ -34,6 +34,8 @@ class Wordpress_plugins {
         }
 //return data
     return $data;
+
+         wp_enqueue_style('css', plugins_url( 'Wordpress-plugin\assets\css\main.css'), array(), '0.0.1');
     }
     
 
