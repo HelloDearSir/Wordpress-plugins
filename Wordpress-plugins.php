@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) {
 class Wordpress_plugins {
    public function __construct() {
       add_filter('woocommerce_available_variation', [$this, 'in_stock_availabilty'], 10, 3);
-     
+      add_action('wp_enqueue_style', [$this, 'wordpress_styles']);
      }
     public function in_stock_availabilty($data, $product, $variation) {
         $stock = $variation->get_stock_quantity();
@@ -35,8 +35,11 @@ class Wordpress_plugins {
 //return data
     return $data;
 
-         wp_enqueue_style('css', plugins_url( 'Wordpress-plugin\assets\css\main.css'), array(), '0.0.1');
+         
     }
-    
+    public function wordpress_styles() {
+    wp_enqueue_style('css', plugins_url( 'Wordpress-plugin\assets\css\main.css'), array(), '0.0.1');
+    }
+}
 
 new Wordpress_plugins();
