@@ -14,8 +14,6 @@ WC tested up to: 7.0
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
-
-
 //Making out of stock messaging or low stock 
 class Wordpress_plugins {
    public function __construct() {
